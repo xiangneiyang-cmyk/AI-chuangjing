@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 创境 — 高校AI数字艺术平台</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6366f1',
+            purple: '#8b5cf6',
+            dark: '#0f172a'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .glass {
+        background: rgba(255,255,255,0.07);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      .gradient-btn {
+        background: linear-gradient(90deg, #6366f1, #8b5cf6);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-dark text-white min-h-screen">
+<!-- 导航 -->
+<nav class="glass fixed w-full px-4 py-3 z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <div class="text-xl font-bold flex items-center gap-2">
+      <i class="fa fa-paint-brush text-primary"></i>
+      AI 创境
+    </div>
+    <div class="flex gap-3">
+      <button class="px-4 py-2 rounded-lg gradient-btn text-white">开始创作</button>
+      <button class="px-4 py-2 rounded-lg glass">登录</button>
+    </div>
+  </div>
+</nav>
+
+<!-- 封面 -->
+<section class="pt-36 pb-20 px-4 text-center">
+  <h1 class="text-[clamp(2rem,5vw,4rem)] font-bold mb-4">
+    <span class="bg-gradient-to-r from-primary to-purple text-transparent bg-clip-text">
+      Create Your World with AI
+    </span>
+  </h1>
+  <p class="text-gray-300 max-w-xl mx-auto mb-8">
+    面向高校的AI数字艺术创作、展示、交流、孵化平台
+  </p>
+  <button class="px-6 py-3 rounded-xl gradient-btn text-white font-semibold">
+    立即体验
+  </button>
+</section>
+
+<!-- 作品展示 -->
+<section class="max-w-6xl mx-auto px-4 pb-20">
+  <h2 class="text-2xl font-bold mb-6">精选作品</h2>
+  <div class="grid grid-cols-1 sm:cols-2 md:cols-3 lg:cols-4 gap-4">
+    <div class="rounded-xl overflow-hidden glass hover:scale-105 transition">
+      <img src="https://picsum.photos/600/800" class="w-full aspect-[3/4] object-cover">
+      <div class="p-3 flex justify-between items-center">
+        <p>AI 创作</p>
+        <i class="fa fa-heart text-primary"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI生成 -->
+<section class="max-w-4xl mx-auto px-4 py-10 glass rounded-2xl mb-20">
+  <h2 class="text-2xl font-bold mb-6 text-center">AI 快速生成</h2>
+  <div class="flex flex-col sm:flex-row gap-3 mb-5">
+    <input id="prompt" type="text" placeholder="输入你的创作想法..." class="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20">
+    <button id="generateBtn" class="px-5 py-3 gradient-btn rounded-lg">生成作品</button>
+  </div>
+  <div id="result" class="w-full min-h-[300px] bg-white/5 rounded-lg flex items-center justify-center text-gray-400">
+    作品将在这里显示
+  </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

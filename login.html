@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录 - AI创境</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-[#0f172a] min-h-screen flex items-center justify-center px-4">
+  <div class="glass p-8 rounded-2xl w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">AI创境 登录</h2>
+    <input id="email" type="email" placeholder="邮箱" class="w-full px-4 py-3 mb-4 rounded-lg bg-white/10 text-white">
+    <input id="password" type="password" placeholder="密码" class="w-full px-4 py-3 mb-6 rounded-lg bg-white/10 text-white">
+    <button onclick="login()" class="w-full py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white font-bold">登录</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
